@@ -21,7 +21,7 @@ public class IntersectionScript : MonoBehaviour {
     {
         
         collision.gameObject.GetComponent<EnemyScripts>().ReplacePin(pin[path]);
-        Debug.Log("Trigger");
+        //Debug.Log("Trigger");
     }
 
 }

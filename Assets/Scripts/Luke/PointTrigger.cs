@@ -17,7 +17,7 @@ public class PointTrigger : MonoBehaviour {
     public void OnTriggerStay2D(Collider2D collision)
     {
         collision.gameObject.GetComponent<EnemyScripts>().ReplacePin(pin);
-        Debug.Log("Trigger");
+        //Debug.Log("Trigger");
     }
 
     /*

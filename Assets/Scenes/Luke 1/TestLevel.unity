@@ -1423,7 +1423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnees:
   - {fileID: 1976884495882572, guid: 9142846e21b2bf14aa975aeabcf44e4b, type: 3}
-  money: 100
 --- !u!1001 &660121574
 PrefabInstance:
   m_ObjectHideFlags: 0

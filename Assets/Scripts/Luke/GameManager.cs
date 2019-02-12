@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     
     public GameObject[] spawnees;
     public int money = 100;
+    public int cost;
     private bool onRoad;
 
 
@@ -31,11 +32,12 @@ public class GameManager : MonoBehaviour {
     //Checks to see if you are clicking on the screen
     private void fireCheck()
     {
-        if (Input.GetButtonDown("Fire1") && onRoad)
+        if (Input.GetButtonDown("Fire1") && onRoad && money >= cost)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 0;
             Instantiate(spawnees[0], pos, Quaternion.identity);
+            money -= cost;
         }
     }
 }

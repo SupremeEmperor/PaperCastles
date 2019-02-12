@@ -7,7 +7,7 @@ public class RoadBoxTrigger : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("yes Yes YES");
+        //Debug.Log("yes Yes YES");
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameManager>().setOnRoad(true);
     }
 

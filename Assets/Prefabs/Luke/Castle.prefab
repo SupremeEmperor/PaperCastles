@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 58870717013348574}
   - component: {fileID: 7661285774591583006}
   - component: {fileID: 5868943035174982487}
+  - component: {fileID: 1034514703535276686}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -149,3 +150,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &1034514703535276686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976884495882572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef107fa80277c64d836fefdf4906c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 10

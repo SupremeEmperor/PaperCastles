@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 58542036230626534}
   - component: {fileID: 114901750364259598}
   m_Layer: 0
-  m_Name: PointA
+  m_Name: PathDecider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,6 +199,7 @@ MonoBehaviour:
   pin:
   - {fileID: 1172948353369058}
   - {fileID: 1550122084327280}
+  upperRange: 2
 --- !u!1 &1550122084327280
 GameObject:
   m_ObjectHideFlags: 0

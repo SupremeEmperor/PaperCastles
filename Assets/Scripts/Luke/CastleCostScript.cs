@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CastleCostScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //change this cost in the prefab
+    public int cost;
 
-    // Update is called once per frame
-    void Update()
+    //Returns the cost of the castle
+    public int getCost()
     {
-        
+        return cost;
     }
 }

@@ -22,6 +22,7 @@ public class EnemyScripts : MonoBehaviour {
         //my_rigidbody.velocity = new Vector2(0 * velocity_Multiplier, -1 * velocity_Multiplier);
     }
 
+
     private void FixedUpdate()
     {
         my_force = pin.transform.position - transform.position;
@@ -29,6 +30,7 @@ public class EnemyScripts : MonoBehaviour {
         my_rigidbody.velocity = new Vector2(my_force.x * velocity_Multiplier, my_force.y * velocity_Multiplier);
     }
 
+    //changes the direction towards wich the enemy goes
     public void ReplacePin(GameObject newGO)
     {
         pin = newGO;

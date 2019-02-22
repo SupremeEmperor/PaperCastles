@@ -14,19 +14,20 @@ public class CityHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //destroys gameobject if health is <= 0
 		if(health <= 0)
         {
             Destroy(this.gameObject);
         }
 	}
 
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Staying");
+        //takes damage if enemy is near
         if(other.gameObject.tag == "Enemy")
         {
             health -= 1;
-            Debug.Log("Hurting");
         }
     }
 }

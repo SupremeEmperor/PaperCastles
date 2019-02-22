@@ -6,6 +6,7 @@ public class IntersectionScript : MonoBehaviour {
 
     public GameObject[] pin;
     private int path;
+    public int upperRange;
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class IntersectionScript : MonoBehaviour {
 
     private void Update()
     {
-        path = Random.Range(0, 2);
+        path = Random.Range(0, upperRange);
     }
 
     public void OnTriggerStay2D(Collider2D collision)

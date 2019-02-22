@@ -14,6 +14,7 @@ public class PointTrigger : MonoBehaviour {
     }
     */
 
+    //sends the enemies to the next location
     public void OnTriggerStay2D(Collider2D collision)
     {
         collision.gameObject.GetComponent<EnemyScripts>().ReplacePin(pin);

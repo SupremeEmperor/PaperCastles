@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     public int money = 100;
     private bool onRoad;
     private bool enemyTurn;
+    private bool placingCastle;
+    private int castleType;
 
 
     private void Start()
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour {
     private void fireCheck()
     {
         int cost = CastleSpawn[0].GetComponent<CastleCostScript>().getCost();
-        if (Input.GetButtonDown("Fire1") && onRoad && money >= cost && !enemyTurn)
+        if (Input.GetButtonDown("Fire1") && onRoad && money >= cost && !enemyTurn && placingCastle)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 0;
@@ -65,4 +67,23 @@ public class GameManager : MonoBehaviour {
             money -= cost;
         }
     }
+
+    public bool getPlacingCastle()
+    {
+        return placingCastle;
+    }
+
+    public void setPlacingCastle(bool to)
+    {
+        placingCastle = to;
+    }
+
+    public void setCastleType(int to)
+    {
+        castleType = to;
+    }
+
+
 }
+
+

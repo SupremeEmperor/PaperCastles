@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CastleScript : MonoBehaviour {
 
+    public int damage;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +20,7 @@ public class CastleScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyScripts>().dealDamage(20);
+            collision.gameObject.GetComponent<EnemyScripts>().dealDamage(damage);
         }
     }
 }

@@ -13,4 +13,12 @@ public class CastleScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyScripts>().dealDamage(20);
+        }
+    }
 }

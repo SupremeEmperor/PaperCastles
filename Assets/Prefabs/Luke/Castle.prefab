@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7661285774591583006}
   - component: {fileID: 5868943035174982487}
   - component: {fileID: 1034514703535276686}
+  - component: {fileID: 858392467118642382}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -163,3 +164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 10
+--- !u!114 &858392467118642382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976884495882572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d68932579a5de249a1b3e2fea55d505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

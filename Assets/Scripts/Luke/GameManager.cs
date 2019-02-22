@@ -23,10 +23,6 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         fireCheck();
-        if (Input.GetButtonDown("Fire2"))
-        {
-            setTurn(true);
-        }
         if(enemySpawnCount > 0 && enemyTurn)
         {
             SpawnIn();
@@ -34,7 +30,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void setTurn(bool to)
+    public void setTurn(bool to)
     {
         enemyTurn = to;
     }

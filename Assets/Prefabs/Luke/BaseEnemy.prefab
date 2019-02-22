@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   my_rigidbody: {fileID: 50184005461090906}
-  velocity_Multiplier: 0.5
+  velocity_Multiplier: 2
   pin: {fileID: 0}
+  health: 20
 --- !u!50 &50184005461090906
 Rigidbody2D:
   serializedVersion: 4

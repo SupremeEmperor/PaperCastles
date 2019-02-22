@@ -9,6 +9,8 @@ public class EnemyScripts : MonoBehaviour {
     Vector2 my_force;
     public float velocity_Multiplier;
     public GameObject pin;
+    //temporary health management
+    public int health;
 
 
     // Use this for initialization
@@ -20,6 +22,10 @@ public class EnemyScripts : MonoBehaviour {
 	void Update () {
         //my_rigidbody.AddForce(new Vector2(0, 1), ForceMode2D.Force);
         //my_rigidbody.velocity = new Vector2(0 * velocity_Multiplier, -1 * velocity_Multiplier);
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 
@@ -34,5 +40,10 @@ public class EnemyScripts : MonoBehaviour {
     public void ReplacePin(GameObject newGO)
     {
         pin = newGO;
+    }
+
+    public void dealDamage(int howMuch)
+    {
+        health -= howMuch;
     }
 }

@@ -68,16 +68,19 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    //returns true if you are currently able to place a castle
     public bool getPlacingCastle()
     {
         return placingCastle;
     }
 
+    //set wheter or not you can place a castle
     public void setPlacingCastle(bool to)
     {
         placingCastle = to;
     }
 
+    //changes the castle type to the given value
     public void setCastleType(int to)
     {
         castleType = to;

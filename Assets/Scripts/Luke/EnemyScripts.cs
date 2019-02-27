@@ -42,6 +42,7 @@ public class EnemyScripts : MonoBehaviour {
         pin = newGO;
     }
 
+    //this deals howMuch damage to this enemy
     public void dealDamage(int howMuch)
     {
         health -= howMuch;

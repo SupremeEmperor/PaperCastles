@@ -21,7 +21,7 @@ public class CityHealth : MonoBehaviour {
         }
 	}
 
-
+    //Takes damage when an enemy enters the trigger
     private void OnTriggerStay2D(Collider2D other)
     {
         //takes damage if enemy is near

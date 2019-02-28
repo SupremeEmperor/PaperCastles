@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -8,33 +9,50 @@ public class GameManager : MonoBehaviour {
     public GameObject[] CastleSpawn;
     public GameObject[] EnemySpawn;
     public GameObject spawnPoint;
-    public int enemySpawnCount;
+    public int[] enemyRoundSpawnCount;
     public int money = 100;
     private bool onRoad;
     private bool enemyTurn;
     private bool placingCastle;
     private int castleType;
+    private int round;
+    public Text MoneyText;
 
 
     private void Start()
     {
+        round = 0;
         onRoad = false;
         enemyTurn = false;
+        setMoneyText();
+    }
+
+    private void setMoneyText()
+    {
+        MoneyText.text = "Money: " + money.ToString();
     }
 
     // Update is called once per frame
     void Update () {
         fireCheck();
-        if(enemySpawnCount > 0 && enemyTurn)
+        if(enemyRoundSpawnCount[round] > 0 && enemyTurn)
         {
             SpawnIn();
-            enemySpawnCount--;
+            enemyRoundSpawnCount[round]--;
         }
     }
 
+    //Sets the enemy turn to to
     public void setTurn(bool to)
     {
+
+        if (to)
+        {
+            money += (enemyRoundSpawnCount[round]/2);
+            setMoneyText();
+        }
         enemyTurn = to;
+        placingCastle = false;
     }
 
     public void setOnRoad(bool to)
@@ -65,6 +83,7 @@ public class GameManager : MonoBehaviour {
             pos.z = 0;
             Instantiate(CastleSpawn[0], pos, Quaternion.identity);
             money -= cost;
+            setMoneyText();
         }
     }
 
@@ -77,13 +96,26 @@ public class GameManager : MonoBehaviour {
     //set wheter or not you can place a castle
     public void setPlacingCastle(bool to)
     {
-        placingCastle = to;
+        if (!enemyTurn)
+        {
+            placingCastle = to;
+        }
     }
 
     //changes the castle type to the given value
     public void setCastleType(int to)
     {
         castleType = to;
+    }
+
+    //Increments the round if the enemies are all dead
+    public void nextRound()
+    {
+        if (GameObject.FindGameObjectWithTag("Enemy") == null && enemyRoundSpawnCount[round] == 0)
+        {
+            round++;
+            enemyTurn = false;
+        }
     }
 
 

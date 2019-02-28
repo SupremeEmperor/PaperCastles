@@ -28,7 +28,7 @@ public class EnemyScripts : MonoBehaviour {
         }
     }
 
-
+    //Directs the enemy towards the pin it was given in ReplacePin()
     private void FixedUpdate()
     {
         my_force = pin.transform.position - transform.position;

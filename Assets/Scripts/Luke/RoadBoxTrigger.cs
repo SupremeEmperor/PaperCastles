@@ -5,8 +5,8 @@ using UnityEngine;
 public class RoadBoxTrigger : MonoBehaviour
 {
     public Texture2D place;
-    //
-    //
+    
+    //This will change the mouse image when you can place a castle
     private void OnMouseOver()
     {
         if (GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameManager>().getPlacingCastle()) { 
@@ -15,6 +15,7 @@ public class RoadBoxTrigger : MonoBehaviour
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameManager>().setOnRoad(true);
         }
     }
+
 
     private void OnMouseExit()
     {

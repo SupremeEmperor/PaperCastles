@@ -7,7 +7,8 @@ public class EnemyScripts : MonoBehaviour {
     bool atIntersection;
     public Rigidbody2D my_rigidbody;
     Vector2 my_force;
-    public float velocity_Multiplier;
+    private float velocity_Multiplier;
+    public float velocity;
     public GameObject pin;
     //temporary health management
     public int health;
@@ -16,6 +17,7 @@ public class EnemyScripts : MonoBehaviour {
     // Use this for initialization
     void Start () {
         atIntersection = false;
+        velocity_Multiplier = velocity;
     }
 	
 	// Update is called once per frame
@@ -34,6 +36,16 @@ public class EnemyScripts : MonoBehaviour {
         my_force = pin.transform.position - transform.position;
         my_force.Normalize();
         my_rigidbody.velocity = new Vector2(my_force.x * velocity_Multiplier, my_force.y * velocity_Multiplier);
+    }
+
+    public void MultiplyVelocity(float by)
+    {
+        velocity_Multiplier = velocity * by;
+    }
+
+    public void baseVelocity()
+    {
+        velocity_Multiplier = velocity;
     }
 
     //changes the direction towards wich the enemy goes

@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     private int castleType;
     private int round;
     public Text MoneyText;
+    public Text RoundText;
+    public int extraRoundMoney;
+    public int extraRoundEnemies;
 
 
     private void Start()
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour {
         onRoad = false;
         enemyTurn = false;
         setMoneyText();
+        setRoundText();
     }
 
     private void setMoneyText()
@@ -32,13 +36,30 @@ public class GameManager : MonoBehaviour {
         MoneyText.text = "Money: " + money.ToString();
     }
 
+    private void setRoundText()
+    {
+        RoundText.text = "Round: " + (round + 1);
+    }
+
     // Update is called once per frame
     void Update () {
         fireCheck();
+        if (round >= enemyRoundSpawnCount.Length)
+        {
+            round = enemyRoundSpawnCount.Length - 1;
+            enemyRoundSpawnCount[round] = extraRoundEnemies += 100;
+        }
         if(enemyRoundSpawnCount[round] > 0 && enemyTurn)
         {
             SpawnIn();
             enemyRoundSpawnCount[round]--;
+        }
+        if (GameObject.FindGameObjectWithTag("Enemy") == null && enemyRoundSpawnCount[round] == 0)
+        {
+            round++;
+            setRoundText();
+            enemyTurn = false;
+
         }
     }
 
@@ -46,7 +67,7 @@ public class GameManager : MonoBehaviour {
     public void setTurn(bool to)
     {
 
-        if (to)
+        if (to && to != enemyTurn)
         {
             money += (enemyRoundSpawnCount[round]/2);
             setMoneyText();
@@ -77,12 +98,12 @@ public class GameManager : MonoBehaviour {
     private void fireCheck()
     {
         int cost = CastleSpawn[0].GetComponent<CastleCostScript>().getCost();
-        if (Input.GetButtonDown("Fire1") && onRoad && money >= cost && !enemyTurn && placingCastle)
+        if (Input.GetButtonDown("Fire1") && onRoad && money >= (castleType + 1) * 10 && !enemyTurn && placingCastle)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 0;
-            Instantiate(CastleSpawn[0], pos, Quaternion.identity);
-            money -= cost;
+            Instantiate(CastleSpawn[castleType], pos, Quaternion.identity);
+            money -= (castleType + 1)*10;
             setMoneyText();
         }
     }
@@ -111,11 +132,7 @@ public class GameManager : MonoBehaviour {
     //Increments the round if the enemies are all dead
     public void nextRound()
     {
-        if (GameObject.FindGameObjectWithTag("Enemy") == null && enemyRoundSpawnCount[round] == 0)
-        {
-            round++;
-            enemyTurn = false;
-        }
+        
     }
 
 

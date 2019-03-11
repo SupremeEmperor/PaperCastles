@@ -33,12 +33,14 @@ public class GameManager : MonoBehaviour {
 
     private void setMoneyText()
     {
-        MoneyText.text = "Money: " + money.ToString();
+        if(MoneyText != null)
+            MoneyText.text = "Money: " + money.ToString();
     }
 
     private void setRoundText()
     {
-        RoundText.text = "Round: " + (round + 1);
+        if (MoneyText != null)
+            RoundText.text = "Round: " + (round + 1);
     }
 
     // Update is called once per frame
@@ -61,6 +63,11 @@ public class GameManager : MonoBehaviour {
             enemyTurn = false;
 
         }
+    }
+
+    public void eternalFoes()
+    {
+        enemyRoundSpawnCount[round]++;
     }
 
     //Sets the enemy turn to to

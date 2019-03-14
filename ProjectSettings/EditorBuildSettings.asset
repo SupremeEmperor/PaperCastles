@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Luke 1/Main Menu.unity
     guid: 55f1a57b65b8c994589423e3346190aa
+  - enabled: 1
+    path: Assets/Scenes/Luke 1/Level1.unity
+    guid: 57dfe19aad805104bbfcc962afec34ee
   m_configObjects: {}

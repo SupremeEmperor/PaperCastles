@@ -13,6 +13,11 @@ public class MainMenu : MonoBehaviour
         check = true;
     }
 
+    private void Awake()
+    {
+        check = true;
+    }
+
     public void Update()
     {
         if (check)
@@ -20,6 +25,7 @@ public class MainMenu : MonoBehaviour
             manager.GetComponent<GameManager>().setTurn(true);
             check = false;
         }
+        
     }
 
     public void PlayGame()
